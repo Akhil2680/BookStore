@@ -1,128 +1,144 @@
-/* App.css */
-
-
-/* Global Styles */
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fafafa;
-    margin: 0;
-    padding: 0;
+:root {
+  --bg-light: #f9f9fc;
+  --text-light: #111;
+  --bg-dark: #121212;
+  --text-dark: #f2f2f2;
+  --primary: #2563eb;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --card-bg-light: #fff;
+  --card-bg-dark: #1e1e1e;
 }
 
-
-/* Navigation Bar */
-
-nav {
-    background-color: #f8f9fa;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+body, html, #root, .app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  transition: all 0.3s ease;
 }
 
-nav a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    border-radius: 6px;
+.app.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
 }
 
-nav a:hover {
-    color: #007bff;
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background-color: var(--card-bg-light);
+  box-shadow: var(--shadow);
+  flex-wrap: wrap;
 }
 
-
-/* Page Container */
-
-.container {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+.app.dark-mode .navbar {
+  background-color: var(--card-bg-dark);
 }
 
-
-/* Headings */
-
-h2,
-h1 {
-    color: #333;
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
 }
 
-
-/* Form Styling */
-
-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
-    margin-bottom: 2rem;
+.logo small {
+  font-size: 0.8rem;
+  color: gray;
 }
 
-input[type="text"],
-input[type="date"],
-input[type="file"] {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
+.nav-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-button {
-    padding: 0.5rem 1rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
+.icon-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
+.icon-btn:hover {
+  background: #1d4ed8;
 }
 
-
-/* Book List */
-
-ul {
-    list-style-type: none;
-    padding: 0;
+/* Main Section */
+.main-section {
+  max-width: 800px;
+  margin: 40px auto;
+  text-align: center;
+  padding: 20px;
 }
 
-li {
-    background-color: #fff;
-    padding: 0.8rem 1rem;
-    margin-bottom: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.main-section h1 {
+  font-size: 2.2rem;
+  color: var(--primary);
 }
 
-
-/* Book Grid */
-
-.book-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 1rem;
+.main-section h2 {
+  font-size: 1.5rem;
+  margin-top: 30px;
 }
 
-.book-card {
-    background-color: #fff;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.features-list li {
+  background-color: var(--card-bg-light);
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow);
+}
+
+.app.dark-mode .features-list li {
+  background-color: var(--card-bg-dark);
+}
+
+.cta-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.cta-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 20px 10px;
+  background-color: #eaeaea;
+  color: #333;
+}
+
+.app.dark-mode .footer {
+  background-color: #222;
+  color: #ddd;
 }

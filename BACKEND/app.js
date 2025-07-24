@@ -64,6 +64,16 @@ app.get('/search', async(req, res) => {
     }
 });
 
+app.delete('/books/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Book.findByIdAndDelete(id);
+    res.status(200).json({ message: 'Book deleted' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to delete' });
+  }
+});
 
 app.put('/books/:id', async(req, res) => {
     const book = await Book.findByIdAndUpdate(req.params.id, req.body)

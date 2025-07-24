@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import './delete.css'; // Assuming you have some styles for this component
 const DeleteBook = () => {
   const [books, setBooks] = useState([]);
 
@@ -33,23 +33,26 @@ const DeleteBook = () => {
     }
   };
 
-  return (
-    <div>
-      <h2>Delete Books</h2>
-      {books.length === 0 ? (
-        <p>No books available</p>
-      ) : (
-        <ul>
-          {books.map((book) => (
-            <li key={book._id}>
-              <strong>{book.title}</strong> by {book.author}{' '}
-              <button onClick={() => handleDelete(book._id)}>Delete</button>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
+ return (
+  <div className="delete-container">
+    <h2>Delete Books</h2>
+    {books.length === 0 ? (
+      <p>No books available</p>
+    ) : (
+      <ul>
+        {books.map((book) => (
+          <li key={book._id}>
+            <span>
+              <strong>{book.title}</strong> by {book.author}
+            </span>
+            <button onClick={() => handleDelete(book._id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+);
+
 };
 
 export default DeleteBook;

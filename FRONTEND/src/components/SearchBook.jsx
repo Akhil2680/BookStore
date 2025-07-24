@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './SearchBook.css';
 
 const SearchBook = () => {
   const [query, setQuery] = useState('');
@@ -21,28 +22,30 @@ const SearchBook = () => {
   };
 
   return (
-    <div>
-      <h2>Search Books</h2>
-      <input
-        type="text"
-        placeholder="Enter book title"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
+    <div className="search-container">
+      <h2 className="search-title">Search Books</h2>
 
-      <div>
+      <div className="search-box">
+        <input
+          type="text"
+          placeholder="Enter book title"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button onClick={handleSearch}>Search</button>
+      </div>
+
+      <div className="results-container">
         {books.length > 0 ? (
-          <ul>
-            {books.map((book) => (
-              <li key={book._id}>
-                <strong>{book.title}</strong> by {book.author} <br />
-                <img src={book.image} alt={book.title} width="100" />
-              </li>
-            ))}
-          </ul>
+          books.map((book) => (
+            <div className="book-card" key={book._id}>
+              <img src={book.image} alt={book.title} />
+              <h3>{book.title}</h3>
+              <p>{book.author}</p>
+            </div>
+          ))
         ) : (
-          <p>No books found</p>
+          <p className="no-result">No books found</p>
         )}
       </div>
     </div>
